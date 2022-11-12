@@ -63,10 +63,10 @@ RSpec.describe 'Enigma class' do
   end
 
   describe '#offset' do
-    xit 'will offset the keys based on the last four digits of the square the numeric date' do
+    it 'will offset the keys based on the last four digits of the square the numeric date' do
       enigma = Enigma.new('boo hoo', '02415', '11-11-22')
 
-      expect(enigma.offset).to eq()
+      expect(enigma.offset).to eq(8884)
     end
   end
 
