@@ -46,8 +46,6 @@ class Enigma
 
   def offset
     offset_nums = date_to_number_squared
-    offset_nums = offset_nums.to_s 
-    offset_nums = offset_nums[-4..-1]
-    offset_nums = offset_nums.to_i
+    offset_nums = offset_nums.to_s[-4..-1].to_i
   end
 end
