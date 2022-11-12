@@ -5,5 +5,6 @@ class Encrypt < Enigma
 
   def initialize(message, key, date)
     @character_set = ("a".."z").to_a << " "
+    super(message, key, date)
   end
 end
