@@ -31,10 +31,18 @@ RSpec.describe 'Enigma class' do
   end
 
   describe '#b_key' do
-    it 'will return the 1st..5th..9th..etc key in the cipher' do
+    it 'will return the 2nd..6th..10th..etc key in the cipher' do
       enigma = Enigma.new('boo hoo', '02415', '11-11-22')
 
       expect(enigma.b_key).to eq(24)
+    end
+  end
+
+  describe '#c_key' do
+    it 'will return the 3rd..7th..11th..etc key in the cipher' do
+      enigma = Enigma.new('boo hoo', '02415', '11-11-22')
+
+      expect(enigma.c_key).to eq(41)
     end
   end
 end
