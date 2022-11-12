@@ -45,4 +45,12 @@ RSpec.describe 'Enigma class' do
       expect(enigma.c_key).to eq(41)
     end
   end
+
+  describe '#d_key' do
+    it 'will return the 4th..8th..12th..etc key in the cipher' do
+      enigma = Enigma.new('boo hoo', '02415', '11-11-22')
+
+      expect(enigma.d_key).to eq(15)
+    end
+  end
 end

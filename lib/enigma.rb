@@ -33,5 +33,8 @@ class Enigma
   end
 
   def d_key
+    x = @key.split('')
+    first_key = x[3..4]
+    first_key.join.to_i
   end
 end
