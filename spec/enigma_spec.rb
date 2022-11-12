@@ -3,9 +3,12 @@ require './lib/enigma'
 
 RSpec.describe 'Enigma class' do
   it 'exists' do
-    enigma = Enigma.new("boo", 02415, "11-11-22")
-
+    enigma = Enigma.new("boo hoo", 02415, "11-11-22")
+binding.pry
     expect(enigma).to be_a(Enigma)
+    expect(enigma.message).to eq("boo hoo")
+    expect(enigma.key).to eq(02415)
+    expect(enigma.date).to eq("11-11-22")
   end
 
   describe '#new_key' do
@@ -16,6 +19,14 @@ RSpec.describe 'Enigma class' do
 
       expect(enigma.key).to be_a(String)
       expect(enigma.key.length).to eq(5)
+    end
+  end
+
+  describe '#a_key' do
+    it 'will return the 1st..5th..9th..etc key in the cipher' do
+      enigma = Enigma.new("boo", 02415, "11-11-22")
+
+      expect(enigma.a_key).to eq(02)
     end
   end
 end

@@ -1,8 +1,8 @@
 require 'pry'
 
 class Enigma
-  attr_reader :message, :date
-  attr_accessor :key
+  attr_reader :message, :date, :key
+  # attr_accessor :key
 
   def initialize(message, key, date)
     @message = message 
@@ -12,6 +12,18 @@ class Enigma
 
   def new_key
     @key = '%05d' % rand(5 ** 5)
-    @key.to_i
+  end
+
+  def a_key
+    
+  end
+
+  def b_key
+  end
+
+  def c_key
+  end
+
+  def d_key
   end
 end
