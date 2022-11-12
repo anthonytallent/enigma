@@ -37,4 +37,14 @@ class Enigma
     first_key = x[3..4]
     first_key.join.to_i
   end
+
+  def date_to_number_squared
+    x = @date.tr('^0-9', '')
+    y = x.to_i**2
+    y
+  end
+
+  def offset
+  
+  end
 end
