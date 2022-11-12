@@ -15,10 +15,15 @@ class Enigma
   end
 
   def a_key
-    
+    x = @key.split('')
+    first_key = x[0..1]
+    first_key.join.to_i
   end
 
   def b_key
+    x = @key.split('')
+    first_key = x[1..2]
+    first_key.join.to_i
   end
 
   def c_key
