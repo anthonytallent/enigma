@@ -27,6 +27,9 @@ class Enigma
   end
 
   def c_key
+    x = @key.split('')
+    first_key = x[2..3]
+    first_key.join.to_i
   end
 
   def d_key
