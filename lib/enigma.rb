@@ -48,4 +48,8 @@ class Enigma
     offset_nums = date_to_number_squared
     offset_nums = offset_nums.to_s[-4..-1].to_i
   end
+
+  def final_shift
+    offset.split('')
+  end
 end
