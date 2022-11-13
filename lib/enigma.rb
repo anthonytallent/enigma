@@ -13,17 +13,5 @@ class Enigma
     @date = Date.today.strftime("%m%d%y")
   end
 
-  # def encrypt(message, key, date)
-  #   y = []
-  #   x = -1
-  #   find_message_index_positions.each do |position|
-  #     # binding.pry
-  #     y << @character_set.rotate(final_shift[x += 1])[position]
-  #     if x == 3
-  #        x = -1
-  #     end
-  #     # code[position]
-  #   end
-  #   y.join
-  # end
+
 end
