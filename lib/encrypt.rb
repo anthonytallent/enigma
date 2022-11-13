@@ -7,4 +7,10 @@ class Encrypt < Enigma
     @character_set = ("a".."z").to_a << " "
     super(message, key, date)
   end
+
+  def encrypt_message
+    binding.pry
+    @message.split('').each do |letter|
+    end
+  end
 end
