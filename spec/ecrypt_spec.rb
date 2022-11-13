@@ -19,11 +19,11 @@ RSpec.describe 'Encrypt class' do
                                         ])
   end
 
-  describe '#encrypt_message' do 
-    it 'will encrypt the message' do
+  describe '#find_message_index_positions' do 
+    it 'will find the index position for every letter in a method' do
       encrypt = Encrypt.new('boo hoo', '02415', '11-11-22')
 
-      expect(encrypt.encrypt_message).to eq('')
+      expect(encrypt.find_message_index_positions).to eq([1, 14, 14, 26, 7, 14, 14])
     end
   end
 end
