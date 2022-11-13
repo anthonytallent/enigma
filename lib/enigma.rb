@@ -2,7 +2,8 @@ require 'pry'
 require 'date'
 require './shift'
 
-class Enigma < Shift
+class Enigma
+  include Shift
   attr_reader :character_set
 
   def initialize
@@ -10,4 +11,5 @@ class Enigma < Shift
   end
 
   def encrypt(message, key, date)
+  end
 end

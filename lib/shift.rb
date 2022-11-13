@@ -1,14 +1,15 @@
 require 'pry'
+require 'date'
 
-class Shift
-  attr_reader :message, :date, :key
-  # attr_accessor :key
+module Shift
+  # attr_reader :message, :date, :key
+  # # attr_accessor :key
 
-  def initialize(message, key, date)
-    @message = message 
-    @key = key
-    @date = date
-  end
+  # def initialize(message, key, date)
+  #   @message = message 
+  #   @key = key
+  #   @date = date
+  # end
 
   def new_key
     @key = 5.times.map{rand(10)}.join 
@@ -39,6 +40,7 @@ class Shift
   end
 
   def date_to_number_squared
+    @date = Date.today.strftime("%m%d%y")
     x = @date.tr('^0-9', '')
     y = x.to_i**2
     y

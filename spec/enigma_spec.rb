@@ -1,6 +1,7 @@
 require 'pry'
 require 'date'
 require './lib/enigma'
+require './lib/shift'
 
 RSpec.describe 'Enigma class' do
   it 'exists' do
