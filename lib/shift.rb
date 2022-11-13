@@ -1,4 +1,5 @@
 require 'pry'
+require 'date'
 
 class Shift
   attr_reader :message, :date, :key
@@ -11,35 +12,36 @@ class Shift
   end
 
   def new_key
-    @key = 5.times.map{rand(10)}.join 
+    key = 5.times.map{rand(10)}.join 
   end
 
   def a_key
-    x = @key.split('')
+    x = key.split('')
     first_key = x[0..1]
     first_key.join.to_i
   end
 
   def b_key
-    x = @key.split('')
+    x = key.split('')
     first_key = x[1..2]
     first_key.join.to_i
   end
 
   def c_key
-    x = @key.split('')
+    x = key.split('')
     first_key = x[2..3]
     first_key.join.to_i
   end
 
   def d_key
-    x = @key.split('')
+    x = key.split('')
     first_key = x[3..4]
     first_key.join.to_i
   end
 
   def date_to_number_squared
-    x = @date.tr('^0-9', '')
+    # binding.pry
+    x = date.tr('^0-9', '')
     y = x.to_i**2
     y
   end

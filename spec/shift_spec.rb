@@ -3,7 +3,7 @@ require './lib/shift'
 
 RSpec.describe 'shift class' do
   it 'exists' do
-    shift = Shift.new('boo hoo', '02415', '11-11-22')
+    shift = Shift.new('boo hoo', '11-11-22')
 # binding.pry
     expect(shift).to be_a(Shift)
     expect(shift.message).to eq("boo hoo")
@@ -13,7 +13,7 @@ RSpec.describe 'shift class' do
 
   describe '#new_key' do
     it 'will randomly genrate a new key and assign it to the attribute key' do
-      shift = Shift.new('boo hoo', '02415', '11-11-22')
+      shift = Shift.new('boo hoo', '11-11-22')
 
       shift.new_key
 
@@ -24,7 +24,7 @@ RSpec.describe 'shift class' do
 
   describe '#a_key' do
     it 'will return the 1st..5th..9th..etc key in the cipher' do
-      shift = Shift.new('boo hoo', '02415', '11-11-22')
+      shift = Shift.new('boo hoo', '11-11-22')
 
       expect(shift.a_key).to eq(02)
     end
@@ -32,7 +32,7 @@ RSpec.describe 'shift class' do
 
   describe '#b_key' do
     it 'will return the 2nd..6th..10th..etc key in the cipher' do
-      shift = Shift.new('boo hoo', '02415', '11-11-22')
+      shift = Shift.new('boo hoo', '11-11-22')
 
       expect(shift.b_key).to eq(24)
     end
@@ -40,7 +40,7 @@ RSpec.describe 'shift class' do
 
   describe '#c_key' do
     it 'will return the 3rd..7th..11th..etc key in the cipher' do
-      shift = Shift.new('boo hoo', '02415', '11-11-22')
+      shift = Shift.new('boo hoo', '11-11-22')
 
       expect(shift.c_key).to eq(41)
     end
@@ -48,7 +48,7 @@ RSpec.describe 'shift class' do
 
   describe '#d_key' do
     it 'will return the 4th..8th..12th..etc key in the cipher' do
-      shift = Shift.new('boo hoo', '02415', '11-11-22')
+      shift = Shift.new('boo hoo', '11-11-22')
 
       expect(shift.d_key).to eq(15)
     end
@@ -56,15 +56,15 @@ RSpec.describe 'shift class' do
 
   describe '#date_to_number_squared' do
     it 'returns the numeric date squared' do
-      shift = Shift.new('boo hoo', '02415', '11-11-22')
-
+      shift = Shift.new('boo hoo', '11-11-22')
+# binding.pry
       expect(shift.date_to_number_squared).to eq(12348098884)
     end
   end
 
   describe '#offset' do
     it 'will offset the keys based on the last four digits of the square the numeric date' do
-      shift = Shift.new('boo hoo', '02415', '11-11-22')
+      shift = Shift.new('boo hoo', '11-11-22')
 
       expect(shift.offset).to eq(['8', '8', '8', '4'])
     end
@@ -72,7 +72,7 @@ RSpec.describe 'shift class' do
 
   describe '#final_shift' do
     it 'returns an array of 4 numbers that represent the cipher shift values' do
-      shift = Shift.new('boo hoo', '02415', '11-11-22')
+      shift = Shift.new('boo hoo', '11-11-22')
 
       expect(shift.final_shift).to eq([10, 32, 49, 19])
     end
