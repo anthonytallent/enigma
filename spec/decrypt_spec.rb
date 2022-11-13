@@ -29,4 +29,12 @@ RSpec.describe 'Decrypt' do
     end
   end
 
+  describe '#decrypt_message' do
+    it 'will decypt the message' do
+      decrypt = Decrypt.new('ltjsrtj', '02415', '11-11-22')
+
+      expect(encrypt.encrypt_message).to eq("boo hoo")
+    end
+  end
+
 end
