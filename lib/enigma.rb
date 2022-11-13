@@ -1,10 +1,13 @@
 require 'pry'
+require 'date'
+require './shift'
 
 class Enigma
   attr_reader :message, :date, :key
   # attr_accessor :key
 
   def initialize(message, key, date)
+    @character_set = ("a".."z").to_a << " "
     @message = message 
     @key = key
     @date = date
