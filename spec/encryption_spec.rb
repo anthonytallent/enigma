@@ -1,6 +1,6 @@
 require 'pry'
 require './lib/enigma'
-require './lib/encrypt'
+require './lib/encryption'
 
 RSpec.describe 'Encrypt class' do
   it 'exists' do
