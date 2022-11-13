@@ -1,7 +1,7 @@
 require 'pry'
 require './lib/enigma'
-require './lib/encrypt'
-require './lib/decrypt'
+require './lib/encryption'
+require './lib/decryption'
 
 RSpec.describe 'Decrypt' do
   it 'exists' do

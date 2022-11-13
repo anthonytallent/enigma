@@ -1,12 +1,14 @@
 require 'pry'
 require './enigma'
 
-class Encrypt < Enigma
-  attr_reader :character_set
+class Encrypt < Shift
+  attr_reader :message, :key, :date, :character_set
 
   def initialize(message, key, date)
     @character_set = ("a".."z").to_a << " "
-    super(message, key, date)
+    @message = message
+    @key = key
+    @date = date
   end
 
   def find_message_index_positions
