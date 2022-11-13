@@ -1,16 +1,8 @@
 require 'pry'
 require 'date'
 
-class Shift
-  attr_reader :message, :date, :key
-  # attr_accessor :key
-
-  def initialize(message, key, date)
-    @message = message 
-    @key = key
-    @date = date
-  end
-
+module Shift
+ 
   def new_key
     key = 5.times.map{rand(10)}.join 
   end
