@@ -5,10 +5,10 @@ require './lib/decrypt'
 
 RSpec.describe 'Decrypt' do
   it 'exists' do
-    decrypt = Decrypt.new('boo hoo', '02415', '11-11-22')
+    decrypt = Decrypt.new('ltjsrtj', '02415', '11-11-22')
 
     expect(decrypt).to be_a(Decrypt)
-    expect(decrypt.message).to eq("boo hoo")
+    expect(decrypt.message).to eq("ltjsrtj")
     expect(decrypt.key).to eq('02415')
     expect(decrypt.date).to eq("11-11-22")
     expect(decrypt.character_set).to eq([
@@ -19,6 +19,14 @@ RSpec.describe 'Decrypt' do
                                           "u", "v", "w", "x", "y", 
                                           "z", " "
                                         ])
+  end
+
+  describe '#find_message_index_positions' do 
+    it 'will find the index position for every letter in a method based on the character_set attribute' do
+      decrypt = Encrypt.new('ltjsrtj', '02415', '11-11-22')
+
+      expect(decrypt.find_message_index_positions).to eq([11, 19, 9, 18, 17, 19, 9])
+    end
   end
 
 end
