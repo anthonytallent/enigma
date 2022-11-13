@@ -23,7 +23,7 @@ RSpec.describe 'Decrypt' do
 
   describe '#find_message_index_positions' do 
     it 'will find the index position for every letter in a method based on the character_set attribute' do
-      decrypt = Encrypt.new('ltjsrtj', '02415', '11-11-22')
+      decrypt = Decrypt.new('ltjsrtj', '02415', '11-11-22')
 
       expect(decrypt.find_message_index_positions).to eq([11, 19, 9, 18, 17, 19, 9])
     end
