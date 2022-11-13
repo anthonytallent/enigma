@@ -24,4 +24,12 @@ RSpec.describe 'Enigma class' do
       expect(enigma.find_message_index_positions('boo hoo')).to eq([1, 14, 14, 26, 7, 14, 14])
     end
   end
+
+  describe '#encrypt_message' do
+    it 'will encypt the message' do
+      enigma = Enigma.new
+
+      expect(enigma.encrypt('boo hoo', '02415', '11-11-22')).to eq("ltjsrtj")
+    end
+  end
 end

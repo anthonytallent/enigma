@@ -1,4 +1,5 @@
 require 'pry'
+require 'date'
 
 class Shift
   attr_reader :message, :date, :key
@@ -39,6 +40,7 @@ class Shift
   end
 
   def date_to_number_squared
+    # binding.pry
     x = date.tr('^0-9', '')
     y = x.to_i**2
     y

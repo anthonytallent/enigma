@@ -22,6 +22,16 @@ class Enigma < Shift
   end
 
   def encrypt(message, key, date)
-
+    y = []
+    x = -1
+    find_message_index_positions(message).each do |position|
+      # binding.pry
+      y << @character_set.rotate(final_shift[x += 1])[position]
+      if x == 3
+         x = -1
+      end
+      # code[position]
+    end
+    y.join
   end
 end
