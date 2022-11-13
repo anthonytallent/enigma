@@ -4,13 +4,25 @@ require './shift'
 
 class Enigma
   include Shift
-  attr_reader :character_set, :message, :key, :date
+  attr_reader :character_set, :key, :date
 
   def initialize
     @character_set = ("a".."z").to_a << " "
-    @message = ''
+    # @message = ''
     @key = '02415'
     @date = Date.today.strftime("%m%d%y")
+  end
+
+  def find_message_index_positions(message)
+    x = []
+    message.split('').map do |letter|
+      character_set.each do |character|
+        if letter == character
+          x << character_set.index(character)
+        end
+      end
+    end
+    x
   end
 
   # def encrypt(message, key, date)
