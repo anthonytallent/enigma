@@ -102,4 +102,16 @@ RSpec.describe 'Enigma class' do
       expect(enigma.encrypt('boo hoo', '02415')).to eq(hash)
     end
   end
+
+  describe '#decrypt' do
+    it 'will decrypt the message and return a hash with all the info' do
+      hash = {
+                decryption: 'boo hoo',
+                key:        '02415',
+                date: Date.today.strftime("%m%d%y")
+             }
+
+      expect(enigma.decrypt('krjsqrj', '02415')).to eq(hash)
+    end
+  end
 end
