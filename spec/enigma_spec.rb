@@ -4,7 +4,7 @@ require './lib/enigma'
 require './lib/shift'
 
 RSpec.describe 'Enigma class' do
-  let(:enigma) {Enigma.new}
+  let(:enigma) {Enigma.new('02415')}
   it 'exists' do
 
     expect(enigma).to be_a(Enigma)
@@ -22,28 +22,28 @@ RSpec.describe 'Enigma class' do
   end
 
   describe '#a_key' do
-    it 'will return the 1st..5th..9th..etc key in the cipher' do
+    it 'will return the starting shift number for the 1st..5th..9th..etc key in the cipher' do
 
       expect(enigma.a_key).to eq(02)
     end
   end
 
   describe '#b_key' do
-    it 'will return the 2nd..6th..10th..etc key in the cipher' do
+    it 'will return the starting shift number for the 2nd..6th..10th..etc key in the cipher' do
 
       expect(enigma.b_key).to eq(24)
     end
   end
 
   describe '#c_key' do
-    it 'will return the 3rd..7th..11th..etc key in the cipher' do
+    it 'will return the starting shift number for the 3rd..7th..11th..etc key in the cipher' do
 
       expect(enigma.c_key).to eq(41)
     end
   end
 
   describe '#d_key' do
-    it 'will return the 4th..8th..12th..etc key in the cipher' do
+    it 'will return the starting shift number for the 4th..8th..12th..etc key in the cipher' do
 
       expect(enigma.d_key).to eq(15)
     end
@@ -67,10 +67,11 @@ RSpec.describe 'Enigma class' do
     it 'returns an array of 4 numbers that represent the cipher shift values' do
 
       expect(enigma.final_shift).to eq([9, 30, 49, 19])
+    end
+  end
 
   describe '#find_message_index_positions' do 
     it 'will find the index position for every letter in a method based on the character_set attribute' do
-      enigma = Enigma.new
 
       expect(enigma.find_message_index_positions('boo hoo')).to eq([1, 14, 14, 26, 7, 14, 14])
     end
