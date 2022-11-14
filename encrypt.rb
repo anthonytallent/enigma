@@ -1,5 +1,4 @@
 require './lib/enigma'
-# require './lib/shift'
 
 enigma = Enigma.new('82648', '240818')
 
