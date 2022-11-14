@@ -6,10 +6,10 @@ class Enigma
   include Shift
   attr_reader :character_set, :key, :date
 
-  def initialize(key)
+  def initialize(key = new_key, date = Date.today.strftime("%m%d%y"))
     @character_set = ("a".."z").to_a << " "
     @key = key
-    @date = Date.today.strftime("%m%d%y")
+    @date = date
   end
 
   def find_message_index_positions(message)
@@ -48,7 +48,7 @@ class Enigma
     y.join
   end
 
-  def encrypt(message, key = new_key, date = Date.today.strftime("%m%d%y"))
+  def encrypt(message, key, date)
     {
       encryption: encrypt_message(message),
       key: key,
@@ -56,7 +56,7 @@ class Enigma
     }
   end
   
-  def decrypt(message, key = new_key, date = Date.today.strftime("%m%d%y"))
+  def decrypt(message, key, date)
     {
       decryption: decrypt_message(message),
       key: key,

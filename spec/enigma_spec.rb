@@ -4,13 +4,13 @@ require './lib/enigma'
 require './lib/shift'
 
 RSpec.describe 'Enigma class' do
-  let(:enigma) {Enigma.new('02415')}
+  let(:enigma) {Enigma.new('02415', '111322')}
   it 'exists' do
 
     expect(enigma).to be_a(Enigma)
     # expect(enigma.message).to eq('')
     expect(enigma.key).to eq('02415')
-    expect(enigma.date).to eq(Date.today.strftime("%m%d%y"))
+    expect(enigma.date).to eq('111322')
     expect(enigma.character_set).to eq([
                                           "a", "b", "c", "d", "e",
                                           "f", "g", "h", "i", "j", 
@@ -103,10 +103,10 @@ RSpec.describe 'Enigma class' do
       hash = {
                 encryption: 'krjsqrj',
                 key:        '02415',
-                date: Date.today.strftime("%m%d%y")
+                date: '111322'
              }
 
-      expect(enigma.encrypt('boo hoo', '02415')).to eq(hash)
+      expect(enigma.encrypt('boo hoo', '02415', enigma.date)).to eq(hash)
     end
   end
 
@@ -115,10 +115,10 @@ RSpec.describe 'Enigma class' do
       hash = {
                 decryption: 'boo hoo',
                 key:        '02415',
-                date: Date.today.strftime("%m%d%y")
+                date: '111322'
              }
 
-      expect(enigma.decrypt('krjsqrj', '02415')).to eq(hash)
+      expect(enigma.decrypt('krjsqrj', '02415', enigma.date)).to eq(hash)
     end
   end
 end
