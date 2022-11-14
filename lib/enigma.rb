@@ -1,6 +1,6 @@
 require 'pry'
 require 'date'
-require './shift'
+require './lib/shift'
 
 class Enigma
   include Shift
