@@ -25,17 +25,36 @@ class Enigma
     x
   end
 
-  # def encrypt(message, key, date)
-  #   y = []
-  #   x = -1
-  #   find_message_index_positions.each do |position|
-  #     # binding.pry
-  #     y << @character_set.rotate(final_shift[x += 1])[position]
-  #     if x == 3
-  #        x = -1
-  #     end
-  #     # code[position]
-  #   end
-  #   y.join
-  # end
+  def encrypt_message(message)
+    y = []
+    x = -1
+    find_message_index_positions(message).each do |position|
+      y << @character_set.rotate(final_shift[x += 1])[position]
+      if x == 3
+         x = -1
+      end
+    end
+    y.join
+  end
+
+  def decrypt_message(message)
+    y = []
+    x = -1
+    find_message_index_positions(message).each do |position|
+      y << @character_set.rotate(-(final_shift[x += 1]))[position]
+      if x == 3
+         x = -1
+      end
+    end
+    y.join
+  end
+
+  def encrypt(message, key = new_key, date = Date.today.strftime("%m%d%y"))
+    {
+      encryption: encrypt_message(message),
+      key: key,
+      date: date
+    }
+  end
+  
 end
