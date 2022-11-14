@@ -22,28 +22,28 @@ RSpec.describe 'Enigma class' do
   end
 
   describe '#a_key' do
-    it 'will return the 1st..5th..9th..etc key in the cipher' do
+    it 'will return the starting shift number for the 1st..5th..9th..etc key in the cipher' do
 
       expect(enigma.a_key).to eq(02)
     end
   end
 
   describe '#b_key' do
-    it 'will return the 2nd..6th..10th..etc key in the cipher' do
+    it 'will return the starting shift number for the 2nd..6th..10th..etc key in the cipher' do
 
       expect(enigma.b_key).to eq(24)
     end
   end
 
   describe '#c_key' do
-    it 'will return the 3rd..7th..11th..etc key in the cipher' do
+    it 'will return the starting shift number for the 3rd..7th..11th..etc key in the cipher' do
 
       expect(enigma.c_key).to eq(41)
     end
   end
 
   describe '#d_key' do
-    it 'will return the 4th..8th..12th..etc key in the cipher' do
+    it 'will return the starting shift number for the 4th..8th..12th..etc key in the cipher' do
 
       expect(enigma.d_key).to eq(15)
     end
