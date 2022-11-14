@@ -67,6 +67,12 @@ RSpec.describe 'Enigma class' do
     it 'returns an array of 4 numbers that represent the cipher shift values' do
 
       expect(enigma.final_shift).to eq([9, 30, 49, 19])
+
+  describe '#find_message_index_positions' do 
+    it 'will find the index position for every letter in a method based on the character_set attribute' do
+      enigma = Enigma.new
+
+      expect(enigma.find_message_index_positions('boo hoo')).to eq([1, 14, 14, 26, 7, 14, 14])
     end
   end
 
