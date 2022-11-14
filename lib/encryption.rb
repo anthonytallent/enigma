@@ -23,12 +23,12 @@ class Encrypt < Shift
     x
   end
 
-  def encrypt_message
+  def decrypt_message
     y = []
     x = -1
     find_message_index_positions.each do |position|
       # binding.pry
-      y << @character_set.rotate(final_shift[x += 1])[position]
+      y << @character_set.rotate(-(final_shift[x += 1]))[position]
       if x == 3
          x = -1
       end

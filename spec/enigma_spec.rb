@@ -8,7 +8,7 @@ RSpec.describe 'Enigma class' do
   it 'exists' do
 
     expect(enigma).to be_a(Enigma)
-    expect(enigma.message).to eq('')
+    # expect(enigma.message).to eq('')
     expect(enigma.key).to eq('02415')
     expect(enigma.date).to eq(Date.today.strftime("%m%d%y"))
     expect(enigma.character_set).to eq([
@@ -73,6 +73,51 @@ RSpec.describe 'Enigma class' do
       enigma = Enigma.new
 
       expect(enigma.find_message_index_positions('boo hoo')).to eq([1, 14, 14, 26, 7, 14, 14])
+    end
+  end
+
+  describe '#find_message_index_positions' do 
+    it 'will find the index position for every letter in a method based on the character_set attribute' do
+
+      expect(enigma.find_message_index_positions('boo hoo')).to eq([1, 14, 14, 26, 7, 14, 14])
+    end
+  end
+
+  describe '#encrypt_message' do
+    it 'will encypt the message' do
+
+      expect(enigma.encrypt_message('boo hoo')).to eq("krjsqrj")
+    end
+  end
+
+  describe '#decrypt_message' do
+    it 'will decrypt the message' do
+
+      expect(enigma.decrypt_message("krjsqrj")).to eq("boo hoo")
+    end
+  end
+
+  describe '#encrypt' do
+    it 'will encrypt the message and return a hash with all the info' do
+      hash = {
+                encryption: 'krjsqrj',
+                key:        '02415',
+                date: Date.today.strftime("%m%d%y")
+             }
+
+      expect(enigma.encrypt('boo hoo', '02415')).to eq(hash)
+    end
+  end
+
+  describe '#decrypt' do
+    it 'will decrypt the message and return a hash with all the info' do
+      hash = {
+                decryption: 'boo hoo',
+                key:        '02415',
+                date: Date.today.strftime("%m%d%y")
+             }
+
+      expect(enigma.decrypt('krjsqrj', '02415')).to eq(hash)
     end
   end
 end
