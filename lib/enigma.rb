@@ -6,10 +6,9 @@ class Enigma
   include Shift
   attr_reader :character_set, :key, :date
 
-  def initialize
+  def initialize(key)
     @character_set = ("a".."z").to_a << " "
-    # @message = ''
-    @key = '02415'
+    @key = key
     @date = Date.today.strftime("%m%d%y")
   end
 
