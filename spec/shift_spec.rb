@@ -1,9 +1,9 @@
 require 'pry'
 require './lib/shift'
 
-RSpec.describe 'shift class' do
+# RSpec.describe 'shift class' do
 
-  let(:enigma) {Enigma.new}
+#   let(:enigma) {Enigma.new}
 #   it 'exists' do
 #     shift = Shift.new('boo hoo', '02415', '11-11-22')
 # # binding.pry
