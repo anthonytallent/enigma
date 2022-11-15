@@ -4,7 +4,7 @@ enigma = Enigma.new('82648', '240818')
 
 handle = File.open(ARGV[0], "r")
 
-incoming_message = handle.read 
+incoming_message = handle.read
 
 handle.close
 
