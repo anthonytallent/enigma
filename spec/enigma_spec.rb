@@ -110,7 +110,7 @@ RSpec.describe 'Enigma class' do
     it 'will encypt the message' do
 
       expect(enigma.encrypt_message('boo hoo')).to eq('krjsqrj')
-      expect(enigma_2.encrypt_message('hello! world?')).to eq("keder! ohulw?")
+      expect(enigma_2.encrypt_message('HEllo! worLd?')).to eq("keder! ohulw?")
     end
   end
 
@@ -118,7 +118,7 @@ RSpec.describe 'Enigma class' do
     it 'will decrypt the message' do
 
       expect(enigma.decrypt_message("krjsqrj")).to eq("boo hoo")
-      expect(enigma_2.decrypt_message("keder! ohulw?")).to eq('hello! world?')
+      expect(enigma_2.decrypt_message("kEDer! ohulw?")).to eq('hello! world?')
     end
   end
 

@@ -15,7 +15,7 @@ class Enigma
   def find_message_index_positions(message)
     x = []
     y = []
-    message.split('').map do |letter|
+    message.downcase.split('').map do |letter|
         if @character_set.include?(letter) == false
           x << letter
         else
@@ -71,19 +71,19 @@ class Enigma
 
   def encrypt(message, key = new_key, date = Date.today.strftime("%m%d%y"))
     @key = key
+    @date = date
     {
       encryption: encrypt_message(message),
-      key: key,
+      key: @key,
       date: date
     }
     
   end
   
   def decrypt(message, key = @key, date = Date.today.strftime("%m%d%y"))
-    # binding.pry
     {
       decryption: decrypt_message(message),
-      key: key,
+      key: @key,
       date: date
     }
   end
