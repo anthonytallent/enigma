@@ -32,6 +32,19 @@ RSpec.describe 'Enigma class' do
                                       ])
   end
 
+  describe '#new_key' do
+    it 'will produce a new random 5 digit key as a string' do
+      expect(enigma.key).to eq('02415')
+
+      enigma.new_key
+
+      expect(enigma.key.class).to eq(String)
+      expect(enigma.key.length).to eq(5)
+      # expect(enigma.key).not_to eq('02415')
+    end
+  end
+
+
   describe '#a_key' do
     it 'will return the starting shift number for the 1st..5th..9th..etc character in the cipher' do
 

@@ -4,7 +4,7 @@ require 'date'
 module Shift
  
   def new_key
-    key = 5.times.map{rand(10)}.join 
+    @key = 5.times.map{rand(10)}.join 
   end
 
   def a_key
