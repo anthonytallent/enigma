@@ -15,24 +15,23 @@ module Shift
 
   def b_key
     x = key.split('')
-    first_key = x[1..2]
-    first_key.join.to_i
+    second_key = x[1..2]
+    second_key.join.to_i
   end
 
   def c_key
     x = key.split('')
-    first_key = x[2..3]
-    first_key.join.to_i
+    third_key = x[2..3]
+    third_key.join.to_i
   end
 
   def d_key
     x = key.split('')
-    first_key = x[3..4]
-    first_key.join.to_i
+    fourth_key = x[3..4]
+    fourth_key.join.to_i
   end
 
   def date_to_number_squared
-    # binding.pry
     x = date.tr('^0-9', '')
     y = x.to_i**2
     y

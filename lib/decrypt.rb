@@ -1,6 +1,6 @@
 require './lib/enigma'
 
-enigma = Enigma.new(ARGV[2], ARGV[3])
+enigma = Enigma.new(ARGV[2].tr('^0-9', ''), ARGV[3].tr('^0-9', ''))
 
 handle = File.open(ARGV[0], "r")
 
