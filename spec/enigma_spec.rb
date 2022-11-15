@@ -143,7 +143,6 @@ RSpec.describe 'Enigma class' do
 
   describe '#decrypt' do
     it 'will decrypt the message and return a hash with all the info' do
-      # binding.pry
       hash = {
                 decryption: 'boo hoo',
                 key:        '02415',
@@ -156,7 +155,7 @@ RSpec.describe 'Enigma class' do
              }
 
       expect(enigma.decrypt('krjsqrj', enigma.key, enigma.date)).to eq(hash)
-      expect(enigma_2.decrypt("keder! ohulw?", enigma_2.key, enigma_2.date)).to eq(hash_2)
+      expect(enigma_2.decrypt("keDer! ohulw?", enigma_2.key, enigma_2.date)).to eq(hash_2)
     end
   end
 end
