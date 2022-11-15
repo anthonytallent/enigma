@@ -14,10 +14,15 @@ class Enigma
 
   def find_message_index_positions(message)
     x = []
+    y = []
     message.split('').map do |letter|
-      character_set.each do |character|
-        if letter == character
-          x << character_set.index(character)
+        if @character_set.include?(letter) == false
+          x << letter
+        else
+        character_set.each do |character|
+          if letter == character
+            x << character_set.index(character)
+          end
         end
       end
     end
@@ -27,10 +32,18 @@ class Enigma
   def encrypt_message(message)
     y = []
     x = -1
+    
     find_message_index_positions(message).each do |position|
-      y << @character_set.rotate(final_shift[x += 1])[position]
+      z = @character_set
+      # binding.pry
+      if position.class == String
+        y << position
+      else
+        y << z.rotate(final_shift[x += 1])[position]
+      end
       if x == 3
          x = -1
+      else x = x
       end
     end
     y.join
@@ -39,24 +52,35 @@ class Enigma
   def decrypt_message(message)
     y = []
     x = -1
+    
     find_message_index_positions(message).each do |position|
-      y << @character_set.rotate(-(final_shift[x += 1]))[position]
+      z = @character_set
+      # binding.pry
+      if position.class == String
+        y << position
+      else
+        y << z.rotate(-(final_shift[x += 1]))[position]
+      end
       if x == 3
          x = -1
+      else x = x
       end
     end
     y.join
   end
 
-  def encrypt(message, key, date)
+  def encrypt(message, key = new_key, date = Date.today.strftime("%m%d%y"))
+    @key = key
     {
       encryption: encrypt_message(message),
       key: key,
       date: date
     }
+    
   end
   
-  def decrypt(message, key, date)
+  def decrypt(message, key = @key, date = Date.today.strftime("%m%d%y"))
+    # binding.pry
     {
       decryption: decrypt_message(message),
       key: key,
