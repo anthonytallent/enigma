@@ -14,16 +14,15 @@ class Enigma
 
   def find_message_index_positions(message)
     x = []
-    y = []
-    message.downcase.split('').map do |letter|
-        if @character_set.include?(letter) == false
-          x << letter
-        else
-        character_set.each do |character|
-          if letter == character
-            x << character_set.index(character)
-          end
+    message.downcase.split('').each do |letter|
+      if @character_set.include?(letter) == false
+        x << letter
+      else
+      character_set.each do |character|
+         if letter == character
+           x << character_set.index(character)
         end
+      end
       end
     end
     x
@@ -32,10 +31,8 @@ class Enigma
   def encrypt_message(message)
     y = []
     x = -1
-    
     find_message_index_positions(message).each do |position|
       z = @character_set
-      # binding.pry
       if position.class == String
         y << position
       else
@@ -52,10 +49,8 @@ class Enigma
   def decrypt_message(message)
     y = []
     x = -1
-    
     find_message_index_positions(message).each do |position|
       z = @character_set
-      # binding.pry
       if position.class == String
         y << position
       else
