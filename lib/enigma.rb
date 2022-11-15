@@ -18,11 +18,11 @@ class Enigma
       if @character_set.include?(letter) == false
         x << letter
       else
-      character_set.each do |character|
-         if letter == character
-           x << character_set.index(character)
+        character_set.each do |character|
+          if letter == character
+            x << character_set.index(character)
+          end
         end
-      end
       end
     end
     x

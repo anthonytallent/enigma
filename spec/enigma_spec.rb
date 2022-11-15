@@ -32,8 +32,21 @@ RSpec.describe 'Enigma class' do
                                       ])
   end
 
+  describe '#new_key' do
+    it 'will produce a new random 5 digit key as a string' do
+      expect(enigma.key).to eq('02415')
+
+      enigma.new_key
+
+      expect(enigma.key.class).to eq(String)
+      expect(enigma.key.length).to eq(5)
+      # expect(enigma.key).not_to eq('02415')
+    end
+  end
+
+
   describe '#a_key' do
-    it 'will return the starting shift number for the 1st..5th..9th..etc key in the cipher' do
+    it 'will return the starting shift number for the 1st..5th..9th..etc character in the cipher' do
 
       expect(enigma.a_key).to eq(02)
       expect(enigma_2.a_key).to eq(02)
@@ -41,7 +54,7 @@ RSpec.describe 'Enigma class' do
   end
 
   describe '#b_key' do
-    it 'will return the starting shift number for the 2nd..6th..10th..etc key in the cipher' do
+    it 'will return the starting shift number for the 2nd..6th..10th..etc character in the cipher' do
 
       expect(enigma.b_key).to eq(24)
       expect(enigma_2.b_key).to eq(27)
@@ -49,7 +62,7 @@ RSpec.describe 'Enigma class' do
   end
 
   describe '#c_key' do
-    it 'will return the starting shift number for the 3rd..7th..11th..etc key in the cipher' do
+    it 'will return the starting shift number for the 3rd..7th..11th..etc character in the cipher' do
 
       expect(enigma.c_key).to eq(41)
       expect(enigma_2.c_key).to eq(71)
@@ -58,7 +71,7 @@ RSpec.describe 'Enigma class' do
   end
 
   describe '#d_key' do
-    it 'will return the starting shift number for the 4th..8th..12th..etc key in the cipher' do
+    it 'will return the starting shift number for the 4th..8th..12th..etc character in the cipher' do
 
       expect(enigma.d_key).to eq(15)
       expect(enigma_2.d_key).to eq(15)
